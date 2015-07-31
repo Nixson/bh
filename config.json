@@ -1,0 +1,21 @@
+{
+	"gc": 60000,
+	"timeout": 10000,
+	"lpTimeout": 300000,
+	"mysql": {
+		"host" : "89.108.72.250",
+		"user": "root",
+		"password": "x0h0ifz_5fvznm",
+		"database": "bhelp_latest",
+		"charset": "utf8_general_ci"
+	},
+	"redis": {
+		"host" : "89.108.72.250",
+		"port" : 6379
+	},
+	"srv": {
+		"client": 4000,
+		"manager": 5000,
+		"master": 4010
+	}
+}
