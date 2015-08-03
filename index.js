@@ -55,13 +55,13 @@ if(cluster.isWorker){
 		password				: config.mysql.password
 	});
 	var Emitter = new EventEmitter();
-	var Clean = require(__dirname+'/lib/clean.js');
+	var Action = require(__dirname+'/lib/action.js');
 	globalData.Emitter = Emitter;
 	globalData.config = config;
 	globalData.mysql = pool;
 	globalData.redis = redis.createClient(config.redis.port, config.redis.host);
 	globalData.worker = cluster.worker.id;
-	var clean = Clean(globalData);
+	var action = Action(globalData);
 
 	http.Server(function(request, response) {
 		request.setEncoding("utf8");
@@ -126,7 +126,9 @@ managerPnum = 0;
 	}).listen(config.srv.manager);
 	process.on('message', function(msg) {
 		switch(msg.action){
-			case "clean": clean.clean(msg);
+			case "clean": action.clean(msg.uid, msg.type);
+				break;
+			case "cmd": action.cmd(msg.uid, msg.cid, msg.type);
 				break;
 		}
 	});
