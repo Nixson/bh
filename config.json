@@ -1,7 +1,7 @@
 {
 	"gc": 60000,
 	"timeout": 10000,
-	"lpTimeout": 300000,
+	"lpTimeout": 110000,
 	"mysql": {
 		"host" : "89.108.72.250",
 		"user": "root",
