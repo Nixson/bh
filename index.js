@@ -82,12 +82,15 @@ if(cluster.isWorker){
 			});
 		}
 		request.on('error', function() {
+			console.log('error');
 			Emitter.emit('isResponse'+uuid);
 		});
 		request.on('clientError', function() {
+			console.log('clientError');
 			Emitter.emit('isResponse'+uuid);
 		});
 		request.on('close', function() {
+			console.log('close');
 			Emitter.emit('isResponse'+uuid);
 		});
 
@@ -115,12 +118,15 @@ managerPnum = 0;
 			});
 		}
 		request.on('error', function() {
+			console.log('error');
 			Emitter.emit('isResponse'+uuid);
 		});
 		request.on('clientError', function() {
+			console.log('clientError');
 			Emitter.emit('isResponse'+uuid);
 		});
 		request.on('close', function() {
+			console.log('close');
 			Emitter.emit('isResponse'+uuid);
 		});
 	}).listen(config.srv.manager);
