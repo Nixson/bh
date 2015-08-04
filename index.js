@@ -45,7 +45,7 @@ if (cluster.isMaster) {
 
 
 if(cluster.isWorker){
-	var globalData = { cList:{},client:{},sess:{},queue:{},timerOut:{},cluster:cluster};
+	var globalData = { cList:{},client:{},manager:{},sess:{},queue:{},timerOut:{},cluster:cluster};
 	var pool  = mysql.createPool({
 		connectionLimit : 20,
 		host						: config.mysql.host,
