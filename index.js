@@ -94,7 +94,7 @@ if(cluster.isWorker){
 			Emitter.emit('isResponse'+uuid);
 		});
 
-}).listen(config.srv.client);
+}).setTimeout(globalData.config.lpTimeout).listen(config.srv.client);
 
 managerPnum = 0;
 
@@ -129,7 +129,7 @@ managerPnum = 0;
 			console.log('close');
 			Emitter.emit('isResponse'+uuid);
 		});
-	}).listen(config.srv.manager);
+	}).setTimeout(globalData.config.lpTimeout).listen(config.srv.manager);
 	process.on('message', function(msg) {
 		switch(msg.action){
 			case "clean": action.clean(msg.uid, msg.type);
