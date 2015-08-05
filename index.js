@@ -63,7 +63,7 @@ if(cluster.isWorker){
 	globalData.worker = cluster.worker.id;
 	var action = Action(globalData);
 
-	http.Server(function(request, response) {
+	var clientServer = http.Server(function(request, response) {
 		request.setEncoding("utf8");
 		var uuid = getUUID();
 		globalData.cList[uuid] = 1;
@@ -94,11 +94,13 @@ if(cluster.isWorker){
 			Emitter.emit('isResponse'+uuid);
 		});
 
-}).setTimeout(globalData.config.lpTimeout).listen(config.srv.client);
+});
+	clientServer.timeout = 0;
+	clientServer.listen(config.srv.client);
 
 managerPnum = 0;
 
-	http.Server(function(request, response) {
+	var managerServer = http.Server(function(request, response) {
 		managerPnum++;
 		request.setEncoding("utf8");
 		var uuid = getUUID();
@@ -129,7 +131,9 @@ managerPnum = 0;
 			console.log('close');
 			Emitter.emit('isResponse'+uuid);
 		});
-	}).setTimeout(globalData.config.lpTimeout).listen(config.srv.manager);
+	});
+	managerServer.timeout = 0;
+	managerServer.listen(config.srv.manager);
 	process.on('message', function(msg) {
 		switch(msg.action){
 			case "clean": action.clean(msg.uid, msg.type);
