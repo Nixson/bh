@@ -135,8 +135,9 @@ managerPnum = 0;
 	managerServer.timeout = 0;
 	managerServer.listen(config.srv.manager);
 	process.on('message', function(msg) {
+		
 		switch(msg.action){
-			case "clean": action.clean(msg.uid, msg.cid, msg.type);
+			case "clear": action.clear(msg.uid, msg.cid, msg.type);
 				break;
 			case "cmd": action.cmd(msg.uid, msg.cid, msg.type);
 				break;
