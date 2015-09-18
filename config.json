@@ -6,7 +6,7 @@
 		"host" : "89.108.72.250",
 		"user": "root",
 		"password": "x0h0ifz_5fvznm",
-		"database": "bhelp_latest",
+		"database": "bhelp_html",
 		"charset": "utf8_general_ci"
 	},
 	"redis": {
