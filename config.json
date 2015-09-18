@@ -17,5 +17,9 @@
 		"client": 4000,
 		"manager": 5000,
 		"master": 4010
+	},
+	"url": {
+		"client": "us.bhelp.com",
+		"manager": "en.bhelp.com"
 	}
 }
