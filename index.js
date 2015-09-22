@@ -85,7 +85,6 @@ setInterval(function(){
 						if(resp==-1){
 							redisClient.expire(cmdName,60);
 						}
-						console.log("cmdClear",cmdName,resp);
 					});
 				});
 			}
