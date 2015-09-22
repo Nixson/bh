@@ -77,6 +77,17 @@ setInterval(function(){
 			}
 		}
 	});
+	redisClient.keys("bh:cmd:*",function(_,keys){
+		if( typeof keys !="undefined" && keys.length > 0) {
+			for( var ink in keys){
+				readHash(keys[ink],function(cmdName){
+					redisClient.ttl(cmdName,function(_,resp){
+						console.log("cmdClear",cmdName,resp);
+					});
+				});
+			}
+		}
+	});
 },config.gc);
 function readHash(key,callback){callback(key);}
 }
