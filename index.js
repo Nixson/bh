@@ -42,18 +42,14 @@ if (cluster.isMaster) {
 }).listen(config.srv.master);
 var redisClient = redis.createClient(config.redis.port, config.redis.host);
 setInterval(function(){
-	console.log("gc");
 	redisClient.keys("bh:c:u:*",function(_,keys){
 		if( typeof keys !="undefined" && keys.length > 0) {
 			for( var mk in keys){
 				readHash(keys[mk],function(keyName){
-					console.log("gc",keyName);
 					redisClient.get(keyName,function(_,resp){
 						if(resp!=''){
 							var info = JSON.parse(resp);
-							console.log("gcResp",info.cid,info.uid);
 							redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
-								console.log("gcResp",info.cid,info.uid,exi);
 								if(!exi)
 									redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
 							});
@@ -180,6 +176,8 @@ managerPnum = 0;
 		
 		switch(msg.action){
 			case "clear": action.clear(msg.uid, msg.cid, msg.type);
+				break;
+			case "userIn": action.clear(msg.uid, msg.cid, msg.type);
 				break;
 			case "cmd": action.cmd(msg.uid, msg.cid, msg.type);
 				break;
