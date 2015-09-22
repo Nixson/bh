@@ -82,6 +82,9 @@ setInterval(function(){
 			for( var ink in keys){
 				readHash(keys[ink],function(cmdName){
 					redisClient.ttl(cmdName,function(_,resp){
+						if(resp==-1){
+							redisClient.expire(cmdName,60);
+						}
 						console.log("cmdClear",cmdName,resp);
 					});
 				});
