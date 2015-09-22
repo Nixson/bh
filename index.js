@@ -40,7 +40,9 @@ if (cluster.isMaster) {
 				response.end();
 		}
 }).listen(config.srv.master);
-
+setInterval(function(){
+	console.log(gc);
+},config.gc);
 }
 
 
