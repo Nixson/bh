@@ -177,7 +177,7 @@ managerPnum = 0;
 		switch(msg.action){
 			case "clear": action.clear(msg.uid, msg.cid, msg.type);
 				break;
-			case "userIn": action.userIn(msg.uid, msg.cid, msg.type);
+			case "userIn": action.userIn(msg.uid, msg.type);
 				break;
 			case "cmd": action.cmd(msg.uid, msg.cid, msg.type);
 				break;
