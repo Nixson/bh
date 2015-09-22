@@ -49,12 +49,13 @@ setInterval(function(){
 				readHash(keys[mk],function(keyName){
 					console.log("gc",keyName);
 					redisClient.get(keyName,function(_,resp){
-						console.log("gcResp",keyName,resp);
 						if(resp!=''){
 							var info = JSON.parse(resp);
+							console.log("gcResp",info.cid,info.uid);
 							redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
+								console.log("gcResp",info.cid,info.uid,exi);
 								if(!exi)
-									redisClient.del("bh:c:i:"+info.cid+":"+info.uid);
+									redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
 							});
 						}
 					});
