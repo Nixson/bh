@@ -41,7 +41,7 @@ if (cluster.isMaster) {
 		}
 }).listen(config.srv.master);
 setInterval(function(){
-	console.log(gc);
+	console.log("gc");
 },config.gc);
 }
 
