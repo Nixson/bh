@@ -40,9 +40,44 @@ if (cluster.isMaster) {
 				response.end();
 		}
 }).listen(config.srv.master);
+var redisClient = redis.createClient(config.redis.port, config.redis.host);
 setInterval(function(){
 	console.log("gc");
+	redisClient.keys("bh:c:u:*",function(_,keys){
+		if( typeof keys !="undefined" && keys.length > 0) {
+			for( var mk in keys){
+				redisClient.get(keys[mk],function(_,resp){
+					if(resp!=''){
+						var info = JSON.parse(resp);
+						redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
+							if(!exi)
+								redisClient.del("bh:c:i:"+info.cid+":"+info.uid);
+						});
+					}
+				});
+			}
+		}
+	});
+	redisClient.keys("bh:c:h:*",function(_,keys){
+		if( typeof keys !="undefined" && keys.length > 0) {
+			for( var mk in keys){
+				readHash(keys[mk],function(hashKey){
+					redisClient.get(hashKey,function(_,resp){
+						if(resp!=''){
+							var userUID = resp;
+							redisClient.keys("bh:c:i:*:"+userUID,function(_,keysV){
+								if (typeof keysV =="undefined" || keysV.length==0){
+									redisClient.del(hashKey);
+								}
+							});
+						}
+					});
+				});
+			}
+		}
+	});
 },config.gc);
+function readHash(key,callback){callback(key);}
 }
 
 
