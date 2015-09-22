@@ -46,15 +46,19 @@ setInterval(function(){
 	redisClient.keys("bh:c:u:*",function(_,keys){
 		if( typeof keys !="undefined" && keys.length > 0) {
 			for( var mk in keys){
-				redisClient.get(keys[mk],function(_,resp){
-					if(resp!=''){
-						var info = JSON.parse(resp);
-						redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
-							if(!exi)
-								redisClient.del("bh:c:i:"+info.cid+":"+info.uid);
-						});
-					}
-				});
+				readHash(keys[mk],function(keyName){
+					console.log("gc",keyName);
+					redisClient.get(keyName,function(_,resp){
+						console.log("gcResp",keyName,resp);
+						if(resp!=''){
+							var info = JSON.parse(resp);
+							redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
+								if(!exi)
+									redisClient.del("bh:c:i:"+info.cid+":"+info.uid);
+							});
+						}
+					});
+				})
 			}
 		}
 	});
