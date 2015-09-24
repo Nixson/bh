@@ -141,7 +141,6 @@ if(cluster.isWorker){
 			Emitter.emit('isResponse'+uuid);
 		});
 		request.on('close', function() {
-			console.log('close');
 			Emitter.emit('isResponse'+uuid);
 		});
 
@@ -179,7 +178,6 @@ managerPnum = 0;
 			Emitter.emit('isResponse'+uuid);
 		});
 		request.on('close', function() {
-			console.log('close');
 			Emitter.emit('isResponse'+uuid);
 		});
 	});
