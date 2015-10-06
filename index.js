@@ -109,8 +109,11 @@ function sendManager(cid,uid){
 						var muid = rep[rep.length-1];
 						if( typeof gData.managers[muid] !='undefined'){
 							for(var cluster in gData.managers[muid]){
+								console.log(cluster,gData.managers[muid]);
+								console.log(cluster.workers);
+								console.log(cluster.workers);
 								if(gData.managers[muid][cluster] > 0){
-									cluster.workers[cluster].send({action:"userOut",uid: uid,cid: cid});
+//									cluster.workers[cluster].send({action:"userOut",uid: uid,cid: cid});
 								}
 							}
 						}
