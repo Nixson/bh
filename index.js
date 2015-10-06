@@ -52,13 +52,13 @@ setInterval(function(){
 							redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
 								if(!exi){
 									redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
-									process.send({ manager: {type: "userOut", cid: info.cid, uid: info.uid}});
+									sendManager(cid,uid);
 								}
 								else {
 									if(typeof gData.clients[info.uid] =='undefined') {
 										redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
 										redisClient.del("bh:c:i:"+info.cid+":"+info.uid);
-										process.send({ manager: {type: "userOut", cid: info.cid, uid: info.uid}});
+										sendManager(cid,uid);
 									}
 								}
 							});
@@ -101,7 +101,23 @@ setInterval(function(){
 	});
 },config.gc);
 function readHash(key,callback){callback(key);}
-
+function sendManager(cid,uid){
+	redisClient.keys("bh:m:i:"+cid+':*',function(_, keys){
+				if(typeof keys!='undefined' && keys.length  > 0){
+					for(var i in keys){
+						var rep = keys[i].split(':');
+						var muid = rep[rep.length-1];
+						if( typeof gData.managers[muid] !='undefined'){
+							for(var cluster in gData.managers[muid]){
+								if(gData.managers[muid][cluster] > 0){
+									cluster.workers[cluster].send({action:"userOut",uid: uid,cid: cid});
+								}
+							}
+						}
+					}
+				}
+			});
+}
 }
 
 
@@ -195,8 +211,8 @@ managerPnum = 0;
 	});
 	managerServer.timeout = 0;
 	managerServer.listen(config.srv.manager);
+
 	process.on('message', function(msg) {
-		
 		switch(msg.action){
 			case "clear": action.clear(msg.uid, msg.cid, msg.type);
 				break;
