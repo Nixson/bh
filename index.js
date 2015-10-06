@@ -50,18 +50,21 @@ setInterval(function(){
 						if(resp!=''){
 							var info = JSON.parse(resp);
 							redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
-								if(!exi)
+								if(!exi){
 									redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
+									process.send({ manager: {type: "userOut", cid: info.cid, uid: info.uid}});
+								}
 								else {
 									if(typeof gData.clients[info.uid] =='undefined') {
 										redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
 										redisClient.del("bh:c:i:"+info.cid+":"+info.uid);
+										process.send({ manager: {type: "userOut", cid: info.cid, uid: info.uid}});
 									}
 								}
 							});
 						}
 					});
-				})
+				});
 			}
 		}
 	});
@@ -98,6 +101,7 @@ setInterval(function(){
 	});
 },config.gc);
 function readHash(key,callback){callback(key);}
+
 }
 
 
@@ -197,6 +201,8 @@ managerPnum = 0;
 			case "clear": action.clear(msg.uid, msg.cid, msg.type);
 				break;
 			case "userIn": action.userIn(msg.uid, msg.type);
+				break;
+			case "userOut": action.allManagersSendOut(msg.uid, msg.cid);
 				break;
 			case "cmd": action.cmd(msg.uid, msg.cid, msg.type);
 				break;
