@@ -52,13 +52,13 @@ setInterval(function(){
 							redisClient.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
 								if(!exi){
 									redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
-									sendManager(cid,uid);
+									sendManager(info.cid,info.uid);
 								}
 								else {
 									if(typeof gData.clients[info.uid] =='undefined') {
 										redisClient.del("bh:c:u:"+info.cid+":"+info.uid);
 										redisClient.del("bh:c:i:"+info.cid+":"+info.uid);
-										sendManager(cid,uid);
+										sendManager(info.cid,info.uid);
 									}
 								}
 							});
