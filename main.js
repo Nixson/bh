@@ -28,11 +28,11 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	globalData.redis = redis.createClient(config.redis.port, config.redis.host);
 	var action = Action(globalData);
 	globalData.send = function(msg){
+		console.log(msg);
 		if(typeof msg.client != 'undefined' && msg.client.uid > 0){
 				switch(msg.client.type){
 					case "in":
 						var newCl = false;
-						console.log(msg.client.uid,this.clients);
 						if(typeof this.clients[msg.client.uid] == 'undefined') {
 							newCl = true;
 							this.clients[msg.client.uid] = 1;
