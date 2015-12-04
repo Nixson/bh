@@ -34,7 +34,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 						var newCl = false;
 						if(typeof this.clients[msg.client.uid] == 'undefined') {
 							newCl = true;
-							this.clients[msg.client.uid] = 1;
+							this.clients[msg.client.uid] = 0;
 						}
 						this.clients[msg.client.uid]++;
 						if(newCl)
