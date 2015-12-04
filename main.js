@@ -28,8 +28,8 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	globalData.redis = redis.createClient(config.redis.port, config.redis.host);
 	var action = Action(globalData);
 	globalData.send = function(msg){
-		console.log(msg);
 		if(typeof msg.client != 'undefined' && msg.client.uid > 0){
+				console.log(msg.client.type);
 				switch(msg.client.type){
 					case "in":
 						var newCl = false;
