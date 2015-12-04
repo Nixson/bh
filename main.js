@@ -11,7 +11,7 @@ var 	http 					= require('http'),
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
 
-	var globalData = { cList:{},clients:{},manager:{},sess:{},queue:{},timerOut:{}};
+	var globalData = { cList:{},clients:{},client:{},manager:{},sess:{},queue:{},timerOut:{}};
 	var pool  = mysql.createPool({
 		connectionLimit : 20,
 		host						: config.mysql.host,
@@ -29,7 +29,6 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	var action = Action(globalData);
 	globalData.send = function(msg){
 		if(typeof msg.client != 'undefined' && msg.client.uid > 0){
-				console.log(msg.client.type);
 				switch(msg.client.type){
 					case "in":
 						var newCl = false;
