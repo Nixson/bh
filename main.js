@@ -27,6 +27,77 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	globalData.mysql = pool;
 	globalData.redis = redis.createClient(config.redis.port, config.redis.host);
 	var action = Action(globalData);
+	globalData.send = function(msg){
+		if(typeof msg.client != 'undefined' && msg.client.uid > 0){
+				switch(msg.client.type){
+					case "in":
+						var newCl = false;
+						if(typeof globalData.clients[msg.client.uid] == 'undefined') {
+							newCl = true;
+							globalData.clients[msg.client.uid] = 1;
+						}
+						globalData.clients[msg.client.uid]++;
+						if(newCl)
+							globalData.send({action:"userIn",type:"client",uid:msg.client.uid});
+						break;
+					case "exit":
+						if(typeof globalData.clients[msg.client.uid] !='undefined') {
+							globalData.clients[msg.client.uid]--;
+							if(globalData.clients[msg.client.uid]==0){
+								delete globalData.clients[msg.client.uid];
+							}
+						}
+						break;
+					case "clear":
+						if(typeof globalData.clients[msg.client.uid] !='undefined' && globalData.clients[msg.client.uid]==0){
+							delete globalData.clients[msg.client.uid];
+							globalData.send({action:"clear",type:"client",uid:msg.client.uid,cid:msg.client.cid});
+						}
+						break;
+					case "cmd":
+						_this.cmd({type: "client",uid: msg.client.uid, cid: msg.client.cid});
+						break;
+				}
+		}
+		if(typeof msg.manager != 'undefined' && msg.manager.uid > 0){
+				switch(msg.manager.type){
+					case "in":
+						if(typeof globalData.managers[msg.manager.uid] == 'undefined') globalData.managers[msg.manager.uid] = {};
+						if(typeof globalData.managers[msg.manager.uid][msg.manager.cluster] == 'undefined') globalData.managers[msg.manager.uid][msg.manager.cluster] = 0;
+						globalData.managers[msg.manager.uid][msg.manager.cluster]++;
+						break;
+					case "exit":
+						if(typeof globalData.managers[msg.manager.uid] !="undefined" && typeof globalData.managers[msg.manager.uid][msg.manager.cluster] != 'undefined') {
+							globalData.managers[msg.manager.uid][msg.manager.cluster]--;
+							if(globalData.managers[msg.manager.uid][msg.manager.cluster]==0){
+								delete globalData.managers[msg.manager.uid][msg.manager.cluster];
+							}
+						}
+						break;
+					case "clear":
+						if(typeof globalData.managers[msg.manager.uid] !='undefined' && Object.keys(globalData.managers[msg.manager.uid]).length==0){
+							delete globalData.managers[msg.manager.uid];
+						}
+						cluster.workers[msg.manager.cluster].send({action:"clear",type:"manager",uid:msg.manager.uid,cid:msg.manager.cid});
+						break;
+					case "cmd":
+						_this.cmd({type: "manager",uid: msg.manager.uid, cid: msg.manager.cid});
+						break;
+				}
+		}
+		if(typeof msg.action != 'undefined'){
+			switch(msg.action){
+				case "clear": action.clear(msg.uid, msg.cid, msg.type);
+					break;
+				case "userIn": action.userIn(msg.uid, msg.type);
+					break;
+				case "userOut": action.allManagersSendOut(msg.uid, msg.cid);
+					break;
+				case "cmd": action.cmd(msg.uid, msg.cid, msg.type);
+					break;
+			}
+		}
+	}
 
 var clientServer = http.Server(function(request, response) {
 		request.setEncoding("utf8");
@@ -99,3 +170,26 @@ managerPnum = 0;
 	});
 	managerServer.timeout = 0;
 	managerServer.listen(config.srv.manager);
+
+
+
+function getUUID(){
+		var uuid = createUUID();
+		if( typeof globalData.cList[uuid] != 'undefined')
+			return getUUID();
+		else
+			return uuid;
+}
+function createUUID() {
+		var s = [];
+		var hexDigits = "0123456789abcdef";
+		for (var i = 0; i < 36; i++) {
+				s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+		}
+		s[14] = "4";
+		s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
+		s[8] = s[13] = s[18] = s[23] = "-";
+
+		var uuid = s.join("");
+		return uuid;
+}
