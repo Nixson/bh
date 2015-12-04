@@ -32,14 +32,14 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 				switch(msg.client.type){
 					case "in":
 						var newCl = false;
-						console.log(msg.client.uid,globalData.clients);
-						if(typeof globalData.clients[msg.client.uid] == 'undefined') {
+						console.log(msg.client.uid,this.clients);
+						if(typeof msg.clients[msg.client.uid] == 'undefined') {
 							newCl = true;
-							globalData.clients[msg.client.uid] = 1;
+							msg.clients[msg.client.uid] = 1;
 						}
-						globalData.clients[msg.client.uid]++;
+						msg.clients[msg.client.uid]++;
 						if(newCl)
-							globalData.send({action:"userIn",type:"client",uid:msg.client.uid});
+							msg.send({action:"userIn",type:"client",uid:msg.client.uid});
 						break;
 					case "exit":
 						if(typeof globalData.clients[msg.client.uid] !='undefined') {
