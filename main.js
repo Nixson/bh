@@ -231,3 +231,85 @@ function createUUID() {
 		var uuid = s.join("");
 		return uuid;
 }
+
+
+setInterval(function(){
+	globalData.redis.keys("bh:c:u:*",function(_,keys){
+		if( typeof keys !="undefined" && keys.length > 0) {
+			for( var mk in keys){
+				readHash(keys[mk],function(keyName){
+					globalData.redis.get(keyName,function(_,resp){
+						if(resp!=''){
+							var info = JSON.parse(resp);
+							globalData.redis.exists("bh:c:i:"+info.cid+":"+info.uid,function(_,exi){
+								if(!exi){
+									globalData.redis.del("bh:c:u:"+info.cid+":"+info.uid);
+									sendManager(info.cid,info.uid);
+								}
+								else {
+									if(typeof gData.clients[info.uid] =='undefined') {
+										globalData.redis.del("bh:c:u:"+info.cid+":"+info.uid);
+										globalData.redis.del("bh:c:i:"+info.cid+":"+info.uid);
+										sendManager(info.cid,info.uid);
+									}
+								}
+							});
+						}
+					});
+				});
+			}
+		}
+	});
+	globalData.redis.keys("bh:c:h:*",function(_,keys){
+		if( typeof keys !="undefined" && keys.length > 0) {
+			for( var mk in keys){
+				readHash(keys[mk],function(hashKey){
+					globalData.redis.get(hashKey,function(_,resp){
+						if(resp!=''){
+							var userUID = resp;
+							globalData.redis.keys("bh:c:i:*:"+userUID,function(_,keysV){
+								if (typeof keysV =="undefined" || keysV.length==0){
+									globalData.redis.del(hashKey);
+								}
+							});
+						}
+					});
+				});
+			}
+		}
+	});
+	globalData.redis.keys("bh:cmd:*",function(_,keys){
+		if( typeof keys !="undefined" && keys.length > 0) {
+			for( var ink in keys){
+				readHash(keys[ink],function(cmdName){
+					globalData.redis.ttl(cmdName,function(_,resp){
+						if(resp==-1){
+							globalData.redis.expire(cmdName,60);
+						}
+					});
+				});
+			}
+		}
+	});
+},config.gc);
+function readHash(key,callback){callback(key);}
+function sendManager(cid,uid){
+	globalData.redis.keys("bh:m:i:"+cid+':*',function(_, keys){
+				if(typeof keys!='undefined' && keys.length  > 0){
+					for(var i in keys){
+						var rep = keys[i].split(':');
+						var muid = rep[rep.length-1];
+						if( typeof gData.managers[muid] !='undefined'){
+							for(var cluster in gData.managers[muid]){
+								console.log(cluster,gData.managers[muid]);
+								console.log(cluster.workers);
+								console.log(cluster.workers);
+								if(gData.managers[muid][cluster] > 0){
+//									cluster.workers[cluster].send({action:"userOut",uid: uid,cid: cid});
+								}
+							}
+						}
+					}
+				}
+			});
+}
