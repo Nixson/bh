@@ -55,33 +55,32 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 						}
 						break;
 					case "cmd":
-						_this.cmd({type: "client",uid: msg.client.uid, cid: msg.client.cid});
+						globalData.cmd({type: "client",uid: msg.client.uid, cid: msg.client.cid});
 						break;
 				}
 		}
 		if(typeof msg.manager != 'undefined' && msg.manager.uid > 0){
 				switch(msg.manager.type){
 					case "in":
-						if(typeof globalData.managers[msg.manager.uid] == 'undefined') globalData.managers[msg.manager.uid] = {};
-						if(typeof globalData.managers[msg.manager.uid][msg.manager.cluster] == 'undefined') globalData.managers[msg.manager.uid][msg.manager.cluster] = 0;
+						if(typeof globalData.managers[msg.manager.uid] == 'undefined') globalData.managers[msg.manager.uid] = 1;
 						globalData.managers[msg.manager.uid][msg.manager.cluster]++;
 						break;
 					case "exit":
-						if(typeof globalData.managers[msg.manager.uid] !="undefined" && typeof globalData.managers[msg.manager.uid][msg.manager.cluster] != 'undefined') {
-							globalData.managers[msg.manager.uid][msg.manager.cluster]--;
-							if(globalData.managers[msg.manager.uid][msg.manager.cluster]==0){
-								delete globalData.managers[msg.manager.uid][msg.manager.cluster];
+						if(typeof globalData.managers[msg.manager.uid] !="undefined") {
+							globalData.managers[msg.manager.uid]--;
+							if(globalData.managers[msg.manager.uid]==0){
+								delete globalData.managers[msg.manager.uid];
 							}
 						}
 						break;
 					case "clear":
-						if(typeof globalData.managers[msg.manager.uid] !='undefined' && Object.keys(globalData.managers[msg.manager.uid]).length==0){
+						if(typeof globalData.managers[msg.manager.uid] !='undefined' && globalData.managers[msg.manager.uid]==0){
 							delete globalData.managers[msg.manager.uid];
 						}
-						cluster.workers[msg.manager.cluster].send({action:"clear",type:"manager",uid:msg.manager.uid,cid:msg.manager.cid});
+						globalData.send({action:"clear",type:"manager",uid:msg.manager.uid,cid:msg.manager.cid});
 						break;
 					case "cmd":
-						_this.cmd({type: "manager",uid: msg.manager.uid, cid: msg.manager.cid});
+						globalData.cmd({type: "manager",uid: msg.manager.uid, cid: msg.manager.cid});
 						break;
 				}
 		}
@@ -97,7 +96,27 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 					break;
 			}
 		}
-	}
+	};
+	globalData.cmd = function(info, num){
+			if( typeof num =='undefined') num = 0;
+			if(num > 100) return;
+			var _this = this;
+			switch(info.type){
+				case "client": 
+					if(typeof globalData.clients[info.uid]=='undefined' || globalData.clients[info.uid]==0) setTimeout(function(){globalData.cmd(info,num+1);},10);
+					else {
+							globalData.send({"action":"cmd","type":"client","cid": info.cid, "uid": info.uid});
+					}
+					break;
+				case "manager": 
+					if(typeof globalData.managers[info.uid]=='undefined' || globalData.managers[info.uid]==0) setTimeout(function(){globalData.cmd(info,num+1);},10);
+					else {
+							globalData.send({"action":"cmd","type":"manager","cid": info.cid, "uid": info.uid});
+					}
+					break;
+			}
+		};
+
 
 var clientServer = http.Server(function(request, response) {
 		request.setEncoding("utf8");
