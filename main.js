@@ -32,6 +32,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 				switch(msg.client.type){
 					case "in":
 						var newCl = false;
+						console.log(msg.client.uid,globalData.clients);
 						if(typeof globalData.clients[msg.client.uid] == 'undefined') {
 							newCl = true;
 							globalData.clients[msg.client.uid] = 1;
