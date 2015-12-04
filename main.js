@@ -12,6 +12,10 @@ var 	http 					= require('http'),
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
 
 	var globalData = { cList:{},clients:{},client:{},manager:{},managers:{},sess:{},queue:{},timerOut:{}};
+
+	var Master 				= require(__dirname+'/lib/master.js');
+	var master = new Master(globalData);
+
 	var pool  = mysql.createPool({
 		connectionLimit : 20,
 		host						: config.mysql.host,
@@ -117,6 +121,21 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 			}
 		};
 
+	http.Server(function(request, response) {
+		request.setEncoding("utf8");
+		var pathname = url.parse(request.url).pathname;
+		if(request.method=="GET" && pathname!='/' && pathname!='/favicon.ico'){
+			master.response(pathname,function(headerCode,resp){
+				response.writeHead(headerCode, {"Content-Type": "application/json; charset=utf8"});
+				response.write(resp+"\n");
+				response.end();
+			});
+		}else {
+				response.writeHead(400, {"Content-Type": "application/json; charset=utf8"});
+				response.write('{"error":"Bad Request"}'+"\n");
+				response.end();
+		}
+}).listen(config.srv.master);
 
 var clientServer = http.Server(function(request, response) {
 		request.setEncoding("utf8");
