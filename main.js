@@ -11,7 +11,7 @@ var 	http 					= require('http'),
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
 
-	var globalData = { cList:{},clients:{},client:{},manager:{},sess:{},queue:{},timerOut:{}};
+	var globalData = { cList:{},clients:{},client:{},manager:{},managers:{},sess:{},queue:{},timerOut:{}};
 	var pool  = mysql.createPool({
 		connectionLimit : 20,
 		host						: config.mysql.host,
