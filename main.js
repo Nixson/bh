@@ -33,30 +33,30 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 					case "in":
 						var newCl = false;
 						console.log(msg.client.uid,this.clients);
-						if(typeof msg.clients[msg.client.uid] == 'undefined') {
+						if(typeof this.clients[msg.client.uid] == 'undefined') {
 							newCl = true;
-							msg.clients[msg.client.uid] = 1;
+							this.clients[msg.client.uid] = 1;
 						}
-						msg.clients[msg.client.uid]++;
+						this.clients[msg.client.uid]++;
 						if(newCl)
-							msg.send({action:"userIn",type:"client",uid:msg.client.uid});
+							this.send({action:"userIn",type:"client",uid:msg.client.uid});
 						break;
 					case "exit":
-						if(typeof globalData.clients[msg.client.uid] !='undefined') {
-							globalData.clients[msg.client.uid]--;
-							if(globalData.clients[msg.client.uid]==0){
-								delete globalData.clients[msg.client.uid];
+						if(typeof this.clients[msg.client.uid] !='undefined') {
+							this.clients[msg.client.uid]--;
+							if(this.clients[msg.client.uid]==0){
+								delete this.clients[msg.client.uid];
 							}
 						}
 						break;
 					case "clear":
-						if(typeof globalData.clients[msg.client.uid] !='undefined' && globalData.clients[msg.client.uid]==0){
-							delete globalData.clients[msg.client.uid];
-							globalData.send({action:"clear",type:"client",uid:msg.client.uid,cid:msg.client.cid});
+						if(typeof this.clients[msg.client.uid] !='undefined' && this.clients[msg.client.uid]==0){
+							delete this.clients[msg.client.uid];
+							this.send({action:"clear",type:"client",uid:msg.client.uid,cid:msg.client.cid});
 						}
 						break;
 					case "cmd":
-						globalData.cmd({type: "client",uid: msg.client.uid, cid: msg.client.cid});
+						this.cmd({type: "client",uid: msg.client.uid, cid: msg.client.cid});
 						break;
 				}
 		}
