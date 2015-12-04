@@ -247,7 +247,7 @@ setInterval(function(){
 									sendManager(info.cid,info.uid);
 								}
 								else {
-									if(typeof gData.clients[info.uid] =='undefined') {
+									if(typeof globalData.clients[info.uid] =='undefined') {
 										globalData.redis.del("bh:c:u:"+info.cid+":"+info.uid);
 										globalData.redis.del("bh:c:i:"+info.cid+":"+info.uid);
 										sendManager(info.cid,info.uid);
@@ -299,12 +299,12 @@ function sendManager(cid,uid){
 					for(var i in keys){
 						var rep = keys[i].split(':');
 						var muid = rep[rep.length-1];
-						if( typeof gData.managers[muid] !='undefined'){
-							for(var cluster in gData.managers[muid]){
-								console.log(cluster,gData.managers[muid]);
+						if( typeof globalData.managers[muid] !='undefined'){
+							for(var cluster in globalData.managers[muid]){
+								console.log(cluster,globalData.managers[muid]);
 								console.log(cluster.workers);
 								console.log(cluster.workers);
-								if(gData.managers[muid][cluster] > 0){
+								if(globalData.managers[muid][cluster] > 0){
 //									cluster.workers[cluster].send({action:"userOut",uid: uid,cid: cid});
 								}
 							}
