@@ -1,16 +1,19 @@
-var http = require('http');
+var WebSocket = require('ws');
+var ws = new WebSocket('ws://ws.bhelp.com/454545');
 
-var num = 0;
-function hg(){
-	if(num > 10000) return;
-	console.log(num);
-num++;
-var req = http.request({hostname:"localhost",port:8000,path:"/",method:"get"},function(){
-//	setTimeout(function(){},1);
-	hg();
+ws.on('open', function open() {
+  console.log('connected');
+  ws.send(Date.now().toString(), {mask: true});
 });
-req.write(" ");
-req.end();
-}
 
- hg();
+ws.on('close', function close() {
+  console.log('disconnected');
+});
+
+ws.on('message', function message(data, flags) {
+  console.log('Roundtrip time: ' + (Date.now() - parseInt(data)) + 'ms', flags);
+
+  setTimeout(function timeout() {
+    ws.send(Date.now().toString(), {mask: true});
+  }, 500);
+});
