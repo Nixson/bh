@@ -1,5 +1,5 @@
 var WebSocket = require('ws');
-var ws = new WebSocket('ws://ws.bhelp.com/454545');
+var ws = new WebSocket('ws://ws.bhelp.com/cl/1288_345wevrt345');
 
 ws.on('open', function open() {
   console.log('connected');

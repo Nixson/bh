@@ -123,8 +123,10 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	var WebSocketServer = require('ws').Server;
 	var wss = new WebSocketServer({port: 6000});
 	    wss.on('connection', function(ws) {
-
-	    	console.log(ws.upgradeReq);
+	    	var path = ws.upgradeReq.url;
+	    	if( path.substr(0,1)=='/') path = path.substr(1);
+	    	pathList = path.split('/');
+	    	console.log(pathList);
 	        ws.on('message', function(message) {
 	        console.log('Received from client: %s', message);
 	        ws.send('Server received from client: ' + message);
