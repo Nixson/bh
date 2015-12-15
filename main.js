@@ -120,7 +120,14 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 					break;
 			}
 		};
-
+	var WebSocketServer = require('ws').Server;
+	var wss = new WebSocketServer({port: 6000});
+	    wss.on('connection', function(ws) {
+	        ws.on('message', function(message) {
+	        console.log('Received from client: %s', message);
+	        ws.send('Server received from client: ' + message);
+	    });
+	 });
 	http.Server(function(request, response) {
 		request.setEncoding("utf8");
 		var pathname = url.parse(request.url).pathname;
