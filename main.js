@@ -5,7 +5,7 @@ var 	http 				= require('http'),
 		redis 				= require('redis'),
 		mysql 				= require('mysql'),
 		sypex 				= require('sypexgeo-vyvid'),
-		client				= require(__dirname+'/lib/client.js'),
+		Client				= require(__dirname+'/lib/client.js'),
 		geoDb = new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
 
@@ -16,8 +16,10 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		queue: {},
 		config: config,
 		Emitter: new EventEmitter(),
-		client: new client(this)
+		client: null
 	};
+
+	gData.client = new Client(gData);
 
 	gData.client.bind();
 
