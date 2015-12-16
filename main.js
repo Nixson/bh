@@ -33,6 +33,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		manager: null,
 		cList: {},
 		timerOut: {},
+		sections: {},
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
 		}
