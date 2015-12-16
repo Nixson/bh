@@ -31,6 +31,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		geo: geoDb,
 		client: null,
 		cList: {},
+		timerOut: {},
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
 		}
