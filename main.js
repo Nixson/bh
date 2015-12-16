@@ -5,7 +5,7 @@ var 	http 				= require('http'),
 		redis 				= require('redis'),
 		mysql 				= require('mysql'),
 		sypex 				= require('sypexgeo-vyvid'),
-		client				= require('lib/client'),
+		client				= require(__dirname+'/lib/client.js'),
 		geoDb = new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
 
