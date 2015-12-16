@@ -6,19 +6,34 @@ var 	http 				= require('http'),
 		mysql 				= require('mysql'),
 		sypex 				= require('sypexgeo-vyvid'),
 		Client				= require(__dirname+'/lib/client.js'),
-		geoDb = new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
+		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString()),
+	pool  = mysql.createPool({
+		connectionLimit : 20,
+		host			: config.mysql.host,
+		user			: config.mysql.user,
+		database		: config.mysql.database,
+		charset			: config.mysql.charset,
+		password		: config.mysql.password
+	}),
 	gData = {
 		clients: {},
+		domClients: {},
 		managers: {},
+		domManagers: {},
 		queue: {},
 		config: config,
 		Emitter: new EventEmitter(),
 		redis = redis.createClient(config.redis.port, config.redis.host),
+		mysql: pull,
+		geo: geoDb,
 		client: null,
-		cList: {}
+		cList: {},
+		time: function(){
+			return parseInt((new Date).getTime()/1000);
+		}
 	};
 
 	gData.client = new Client(gData);
