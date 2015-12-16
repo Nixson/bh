@@ -1,5 +1,3 @@
-bhelpSrvAddress
-bhelpSrvVersion
 if(typeof localStorage!='undefined'){
 	var bhelpVersion = localStorage.getItem("bhelp_version");
 	if(bhelpVersion==null || bhelpVersion != bhelpSrvVersion) bhelpLoad(bhelpSrvAddress); else eval(localStorage.getItem("bhelp_latest"));
