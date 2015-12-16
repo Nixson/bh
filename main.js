@@ -13,7 +13,8 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		clients: {},
 		managers: {},
 		queue: {},
-		config: config
+		config: config,
+		Emitter: new EventEmitter()
 	};
 
 	console.log(gData);
