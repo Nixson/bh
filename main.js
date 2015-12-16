@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-var sypex = require('sypexgeo-vyvid');
-var geoDb = new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
-var location = geoDb.find('46.148.53.103');
-
-console.log(JSON.stringify(location, null, '  '));
-=======
 var 	http 					= require('http'),
 		fs 						= require('fs'),
 		url						= require('url'),
@@ -32,4 +25,3 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 /*var location = geoDb.find('46.148.53.103');
 
 console.log(JSON.stringify(location, null, '  '));*/
->>>>>>> b5bed28b7bb7d0f467a9e1bf6c06c1c592284036
