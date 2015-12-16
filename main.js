@@ -27,7 +27,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		config: config,
 		Emitter: new EventEmitter(),
 		redis: redis.createClient(config.redis.port, config.redis.host),
-		mysql: pull,
+		mysql: pool,
 		geo: geoDb,
 		client: null,
 		cList: {},
