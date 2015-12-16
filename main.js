@@ -21,7 +21,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 
 	console.log(gData);
 
-	gData.client.cs.listen(config.srv.client);
+	//gData.client.cs.listen(config.srv.client);
 
 
 
