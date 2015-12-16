@@ -1,10 +1,11 @@
-var 	http 					= require('http'),
-		fs 						= require('fs'),
-		url						= require('url'),
-		EventEmitter 	= require('events').EventEmitter,
+var 	http 				= require('http'),
+		fs 					= require('fs'),
+		url					= require('url'),
+		EventEmitter 		= require('events').EventEmitter,
 		redis 				= require('redis'),
 		mysql 				= require('mysql'),
-		sypex = require('sypexgeo-vyvid'),
+		sypex 				= require('sypexgeo-vyvid'),
+		client				= require('lib/client'),
 		geoDb = new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
 
@@ -14,7 +15,8 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		managers: {},
 		queue: {},
 		config: config,
-		Emitter: new EventEmitter()
+		Emitter: new EventEmitter(),
+		client: new client;
 	};
 
 	console.log(gData);
