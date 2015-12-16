@@ -30,6 +30,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		mysql: pool,
 		geo: geoDb,
 		client: null,
+		manager: null,
 		cList: {},
 		timerOut: {},
 		time: function(){
@@ -38,6 +39,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	};
 
 	gData.client = new Client(gData);
+	gData.manager = new Client(gData);
 
 	gData.client.bind();
 
