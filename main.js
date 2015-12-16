@@ -5,7 +5,7 @@ var 	http 					= require('http'),
 		redis 				= require('redis'),
 		mysql 				= require('mysql'),
 		sypex = require('sypexgeo-vyvid'),
-		geoDb = new sypex.Geo('/a/full/path/to/the/SypexGeoCity.dat');
+		geoDb = new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString()),
