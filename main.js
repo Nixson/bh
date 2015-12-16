@@ -20,9 +20,9 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	}),
 	gData = {
 		clients: {},
-		domClients: {},
+		sectionClients: {},
 		managers: {},
-		domManagers: {},
+		sectionManagers: {},
 		queue: {},
 		config: config,
 		Emitter: new EventEmitter(),
