@@ -16,10 +16,11 @@
 	"srv": {
 		"client": 4000,
 		"manager": 5000,
-		"master": 4010
+		"websocket": 6000
 	},
 	"url": {
 		"client": "us.bhelp.com",
-		"manager": "en.bhelp.com"
+		"manager": "en.bhelp.com",
+		"websocket": "ws.bhelp.com"
 	}
 }
