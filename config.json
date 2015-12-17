@@ -22,5 +22,8 @@
 		"client": "us.bhelp.com",
 		"manager": "en.bhelp.com",
 		"websocket": "ws.bhelp.com"
+	},
+	"dir": {
+		"client": "/srv/home/c.bhelp.com"
 	}
 }
