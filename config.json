@@ -16,6 +16,7 @@
 	"srv": {
 		"client": 4000,
 		"manager": 5000,
+		"signal": 5050,
 		"websocket": 6000
 	},
 	"url": {
