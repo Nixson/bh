@@ -6,6 +6,7 @@ var 	http 				= require('http'),
 		mysql 				= require('mysql'),
 		sypex 				= require('sypexgeo-vyvid'),
 		Client				= require(__dirname+'/lib/client.js'),
+		Signal				= require(__dirname+'/lib/signal.js'),
 		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
 
@@ -31,6 +32,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		geo: geoDb,
 		client: null,
 		manager: null,
+		signal: null,
 		cList: {},
 		timerOut: {},
 		sections: {},
@@ -41,8 +43,10 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 
 	gData.client = new Client(gData);
 	gData.manager = new Client(gData);
+	gData.signal = new Signal(gData);
 
 	gData.client.bind();
+	gData.signal.bind();
 
 
 	//gData.client.cs.listen(config.srv.client);
