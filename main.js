@@ -34,6 +34,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		client: null,
 		manager: null,
 		signal: null,
+		triggers: {},
 		cList: {},
 		timerOut: {},
 		sections: {},
