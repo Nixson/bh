@@ -5,6 +5,7 @@ var 	http 				= require('http'),
 		redis 				= require('redis'),
 		mysql 				= require('mysql'),
 		sypex 				= require('sypexgeo-vyvid'),
+		validator			= require('validator'),
 		Client				= require(__dirname+'/lib/client.js'),
 		Signal				= require(__dirname+'/lib/signal.js'),
 		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
@@ -36,6 +37,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		cList: {},
 		timerOut: {},
 		sections: {},
+		validator: validator,
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
 		}
