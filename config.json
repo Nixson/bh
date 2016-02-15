@@ -22,7 +22,7 @@
 	},
 	"url": {
 		"client": "us.bhelp.com",
-		"manager": "en.bhelp.com",
+		"manager": "is.bhelp.com",
 		"websocket": "ws.bhelp.com",
 		"websocketmanager": "wsm.bhelp.com"
 	},
