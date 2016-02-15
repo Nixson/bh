@@ -17,12 +17,14 @@
 		"client": 4000,
 		"manager": 5000,
 		"signal": 5050,
-		"websocket": 6000
+		"websocket": 6000,
+		"websocketmanager": 6001
 	},
 	"url": {
 		"client": "us.bhelp.com",
 		"manager": "en.bhelp.com",
-		"websocket": "ws.bhelp.com"
+		"websocket": "ws.bhelp.com",
+		"websocketmanager": "wsm.bhelp.com"
 	},
 	"dir": {
 		"client": "/srv/home/c.bhelp.com"

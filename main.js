@@ -7,6 +7,7 @@ var 	http 				= require('http'),
 		sypex 				= require('sypexgeo-vyvid'),
 		validator			= require('validator'),
 		Client				= require(__dirname+'/lib/client.js'),
+		Manager				= require(__dirname+'/lib/manager.js'),
 		Signal				= require(__dirname+'/lib/signal.js'),
 		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
@@ -36,7 +37,9 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		signal: null,
 		triggers: {},
 		cList: {},
+		mList: {},
 		timerOut: {},
+		mtimerOut: {},
 		sections: {},
 		validator: validator,
 		time: function(){
@@ -45,7 +48,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	};
 
 	gData.client = new Client(gData);
-	gData.manager = new Client(gData);
+	gData.manager = new Manager(gData);
 	gData.signal = new Signal(gData);
 
 	gData.client.bind();
