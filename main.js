@@ -41,6 +41,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		timerOut: {},
 		mtimerOut: {},
 		sections: {},
+		msg: {},
 		validator: validator,
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
