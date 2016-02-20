@@ -49,6 +49,8 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		sections: {},
 		msg: {},
 		canvas: {},
+		sectionClientsOffline: {},
+		sectionClientsMsgOffline: {},
 		validator: validator,
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
