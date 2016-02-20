@@ -104,9 +104,12 @@ fs.watchFile(sPath,function (current, previous) {
 
 	//gData.client.cs.listen(config.srv.client);
 
-/*process.on('uncaughtException', (err) => {
-  console.log(`Caught exception: ${err}`);
-});*/
+process.on('uncaughtException', (err) => {
+	console.log("on uncaughtException",err);
+});
+process.addListener("uncaughtException",function(e){
+	console.log("listen uncaughtException",e);
+})
 
 /*var location = geoDb.find('46.148.53.103');
 
