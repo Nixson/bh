@@ -63,6 +63,12 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 			return parseInt((new Date).getTime()/1000);
 		}
 	};
+fs.watchFile(__dirname+"/config.json"function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+		var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
+		gData.config = config;
+	}
+});
 
 	gData.client = new Client(gData);
 	gData.manager = new Manager(gData);
