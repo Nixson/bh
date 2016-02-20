@@ -16,6 +16,7 @@ function reloadable(modulename) {
   fs.watchFile(modulename, function (current, previous) {
     if (current.mtime.toString() !== previous.mtime.toString()) {
       console.log('reloading module:' + modulename);
+      console.log(require.cache[require.resolve(modulename)]);
       delete require.cache[require.resolve(modulename)];
       mymodule = require(modulename);
     }
