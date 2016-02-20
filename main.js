@@ -21,7 +21,7 @@ function reloadable(modulename) {
   });
   return mymodule;
 }
-var		Client				= reloadable(__dirname+'/lib/client.js'),
+var		Client				= require(__dirname+'/lib/client.js'),
 		Manager				= reloadable(__dirname+'/lib/manager.js'),
 		Signal				= reloadable(__dirname+'/lib/signal.js');
 
