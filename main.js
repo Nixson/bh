@@ -15,8 +15,6 @@ function reloadable(modulename) {
   var mymodule = require(modulename);
   fs.watchFile(modulename, function (current, previous) {
     if (current.mtime.toString() !== previous.mtime.toString()) {
-      console.log('reloading module:' + modulename);
-      console.log(require.cache[require.resolve(modulename)]);
       delete require.cache[require.resolve(modulename)];
       mymodule = require(modulename);
     }
@@ -63,14 +61,6 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 			return parseInt((new Date).getTime()/1000);
 		}
 	};
-fs.watchFile(__dirname+"/config.json",function (current, previous) {
-	if (current.mtime.toString() !== previous.mtime.toString()) {
-		var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
-		gData.config = config;
-      console.log('config changed');
-	}
-});
-
 	gData.client = new Client(gData);
 	gData.manager = new Manager(gData);
 	gData.signal = new Signal(gData);
@@ -78,6 +68,24 @@ fs.watchFile(__dirname+"/config.json",function (current, previous) {
 	gData.client.bind();
 	gData.manager.bind();
 	gData.signal.bind();
+
+fs.watchFile(__dirname+"/config.json",function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+		var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
+		gData.config = config;
+	}
+});
+var cPath = __dirname+"/lib/client.js";
+fs.watchFile(cPath,function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+      delete require.cache[require.resolve(cPath)];
+      var Sclient = require(cPath);
+      gData.client.close();
+      delete gData.client;
+      gData.client = new Sclient(gData);
+      gData.client.bind();
+	}
+});
 
 
 	//gData.client.cs.listen(config.srv.client);
