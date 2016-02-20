@@ -11,20 +11,12 @@ var 	http 				= require('http'),
 		Signal				= require(__dirname+'/lib/signal.js'),*/
 		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
-function reloadable(modulename) {
-  var mymodule = require(modulename);
-  fs.watchFile(modulename, function (current, previous) {
-    if (current.mtime.toString() !== previous.mtime.toString()) {
-      delete require.cache[require.resolve(modulename)];
-      mymodule = require(modulename);
-    }
-  });
-  return mymodule;
-}
-var cPath = __dirname+"/lib/client.js";
+var cPath = __dirname+"/lib/client.js",
+	mPath = __dirname+"/lib/manager.js",
+	sPath = __dirname+"/lib/signal.js";
 var		Client				= require(cPath),
-		Manager				= reloadable(__dirname+'/lib/manager.js'),
-		Signal				= reloadable(__dirname+'/lib/signal.js');
+		Manager				= require(mPath),
+		Signal				= require(sPath);
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString()),
 	pool  = mysql.createPool({
@@ -87,12 +79,34 @@ fs.watchFile(cPath,function (current, previous) {
 	}
 });
 
+fs.watchFile(mPath,function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+      delete require.cache[require.resolve(mPath)];
+      var Smanager = require(mPath);
+      gData.manager.close();
+      delete gData.manager;
+      gData.manager = new Smanager(gData);
+      gData.manager.bind();
+	}
+});
+
+fs.watchFile(sPath,function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+      delete require.cache[require.resolve(sPath)];
+      var Ssignal = require(sPath);
+      gData.signal.close();
+      delete gData.signal;
+      gData.signal = new Ssignal(gData);
+      gData.signal.bind();
+	}
+});
+
 
 	//gData.client.cs.listen(config.srv.client);
 
-process.on('uncaughtException', (err) => {
+/*process.on('uncaughtException', (err) => {
   console.log(`Caught exception: ${err}`);
-});
+});*/
 
 /*var location = geoDb.find('46.148.53.103');
 
