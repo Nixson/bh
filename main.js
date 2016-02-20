@@ -18,7 +18,6 @@ function reloadable(modulename) {
       console.log('reloading module:' + modulename);
       delete require.cache[require.resolve(modulename)];
       mymodule = require(modulename);
-      console.log('version changed:' + newmodule.version);
     }
   });
   return mymodule;
@@ -67,6 +66,7 @@ fs.watchFile(__dirname+"/config.json"function (current, previous) {
 	if (current.mtime.toString() !== previous.mtime.toString()) {
 		var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
 		gData.config = config;
+      console.log('config changed');
 	}
 });
 
