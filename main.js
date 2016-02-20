@@ -21,7 +21,8 @@ function reloadable(modulename) {
   });
   return mymodule;
 }
-var		Client				= require(__dirname+'/lib/client.js'),
+var cPath = __dirname+"/lib/client.js";
+var		Client				= require(cPath),
 		Manager				= reloadable(__dirname+'/lib/manager.js'),
 		Signal				= reloadable(__dirname+'/lib/signal.js');
 
@@ -75,7 +76,6 @@ fs.watchFile(__dirname+"/config.json",function (current, previous) {
 		gData.config = config;
 	}
 });
-var cPath = __dirname+"/lib/client.js";
 fs.watchFile(cPath,function (current, previous) {
 	if (current.mtime.toString() !== previous.mtime.toString()) {
       delete require.cache[require.resolve(cPath)];
