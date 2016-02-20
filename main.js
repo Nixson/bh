@@ -6,11 +6,26 @@ var 	http 				= require('http'),
 		mysql 				= require('mysql'),
 		sypex 				= require('sypexgeo-vyvid'),
 		validator			= require('validator'),
-		Client				= require(__dirname+'/lib/client.js'),
+		/*Client				= require(__dirname+'/lib/client.js'),
 		Manager				= require(__dirname+'/lib/manager.js'),
-		Signal				= require(__dirname+'/lib/signal.js'),
+		Signal				= require(__dirname+'/lib/signal.js'),*/
 		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
+function reloadable(modulename) {
+  var mymodule = require(modulename);
+  fs.watchFile(modulename, function (current, previous) {
+    if (current.mtime.toString() !== previous.mtime.toString()) {
+      console.log('reloading module:' + modulename);
+      delete require.cache[require.resolve(modulename)];
+      mymodule = require(modulename);
+      console.log('version changed:' + newmodule.version);
+    }
+  });
+  return mymodule;
+}
+var		Client				= reloadable(__dirname+'/lib/client.js'),
+		Manager				= reloadable(__dirname+'/lib/manager.js'),
+		Signal				= reloadable(__dirname+'/lib/signal.js');
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString()),
 	pool  = mysql.createPool({
