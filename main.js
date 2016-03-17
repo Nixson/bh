@@ -14,9 +14,11 @@ var 	http 				= require('http'),
 var cPath = __dirname+"/lib/client.js",
 	mPath = __dirname+"/lib/manager.js",
 	sPath = __dirname+"/lib/signal.js";
+	zPath = __dirname+"/lib/command.js";
 var		Client				= require(cPath),
 		Manager				= require(mPath),
-		Signal				= require(sPath);
+		Signal				= require(sPath),
+		Command				= require(zPath);
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString()),
 	pool  = mysql.createPool({
@@ -28,6 +30,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		password		: config.mysql.password
 	}),
 	gData = {
+		command: null,
 		clients: {},
 		sectionClients: {},
 		managers: {},
@@ -63,6 +66,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	gData.client.bind();
 	gData.manager.bind();
 	gData.signal.bind();
+	gData.command.bind();
 
 fs.watchFile(__dirname+"/config.json",function (current, previous) {
 	if (current.mtime.toString() !== previous.mtime.toString()) {
@@ -102,7 +106,16 @@ fs.watchFile(sPath,function (current, previous) {
       gData.signal.bind();
 	}
 });
-
+fs.watchFile(zPath,function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+      delete require.cache[require.resolve(zPath)];
+      var Scommand = require(zPath);
+      gData.command.close();
+      delete gData.command;
+      gData.command = new Scommand(gData);
+      gData.command.bind();
+	}
+});
 
 	//gData.client.cs.listen(config.srv.client);
 /*

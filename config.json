@@ -18,7 +18,8 @@
 		"manager": 5000,
 		"signal": 5050,
 		"websocket": 6000,
-		"websocketmanager": 6001
+		"websocketmanager": 6001,
+		"command": 7000
 	},
 	"url": {
 		"client": "us.bhelp.com",
