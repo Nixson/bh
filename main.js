@@ -62,6 +62,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 	gData.client = new Client(gData);
 	gData.manager = new Manager(gData);
 	gData.signal = new Signal(gData);
+	gData.command = new Command(gData);
 
 	gData.client.bind();
 	gData.manager.bind();
