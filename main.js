@@ -131,3 +131,14 @@ process.addListener("uncaughtException",function(e){
 /*var location = geoDb.find('46.148.53.103');
 
 console.log(JSON.stringify(location, null, '  '));*/
+Array.prototype.getUnique = function(){
+   var u = {}, a = [];
+   for(var i = 0, l = this.length; i < l; ++i){
+      if(u.hasOwnProperty(this[i])) {
+         continue;
+      }
+      a.push(this[i]);
+      u[this[i]] = 1;
+   }
+   return a;
+}
