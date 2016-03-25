@@ -36,6 +36,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		managers: {},
 		sectionManagers: {},
 		queue: {},
+		bot: {},
 		config: config,
 		Emitter: new EventEmitter(),
 		redis: redis.createClient(config.redis.port, config.redis.host),
