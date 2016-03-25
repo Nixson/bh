@@ -52,6 +52,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		mtimerOut: {},
 		sections: {},
 		msg: {},
+		msgof: {},
 		canvas: {},
 		sectionClientsOffline: {},
 		sectionClientsMsgOffline: {},
