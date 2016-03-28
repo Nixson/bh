@@ -6,6 +6,7 @@ var 	http 				= require('http'),
 		mysql 				= require('mysql'),
 		sypex 				= require('sypexgeo-vyvid'),
 		validator			= require('validator'),
+		mailer				= require('nodemailer'),
 		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
 
 var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString()),
@@ -17,9 +18,11 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		charset			: config.mysql.charset,
 		password		: config.mysql.password
 	}),
+	transporter = mailer.createTransport(config.mail);
 var gData = {
 		config: config,
 		mysql: pool,
+		mail: transporter,
 		Emitter: new EventEmitter(),
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
