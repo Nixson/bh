@@ -22,7 +22,9 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 var gData = {
 		config: config,
 		mysql: pool,
-		mail: transporter,
+		mailer: transporter,
+		mail: null,
+		stat: null,
 		Emitter: new EventEmitter(),
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
@@ -39,9 +41,44 @@ var gData = {
 			return a;
 		}
 };
+
+var mPath = __dirname+"/lib/mailer.js",
+	sPath = __dirname+"/lib/stat.js";
+var		Mail				= require(mPath),
+		Stat				= require(sPath);
+gData.mail = new Mail(gData);
+gData.mail.bind();
+gData.stat = new Stat(gData);
+gData.stat.bind();
+
+
+
+
+
 fs.watchFile(__dirname+"/config.json",function (current, previous) {
 	if (current.mtime.toString() !== previous.mtime.toString()) {
 		var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toString());
 		gData.config = config;
+	}
+});
+fs.watchFile(mPath,function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+      delete require.cache[require.resolve(mPath)];
+      var Mail = require(mPath);
+      gData.mail.close();
+      delete gData.mail;
+      gData.mail = new Mail(gData);
+      gData.mail.bind();
+	}
+});
+
+fs.watchFile(sPath,function (current, previous) {
+	if (current.mtime.toString() !== previous.mtime.toString()) {
+      delete require.cache[require.resolve(sPath)];
+      var Stat = require(sPath);
+      gData.stat.close();
+      delete gData.stat;
+      gData.stat = new Stat(gData);
+      gData.stat.bind();
 	}
 });
