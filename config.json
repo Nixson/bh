@@ -19,7 +19,9 @@
 		"signal": 5050,
 		"websocket": 6000,
 		"websocketmanager": 6001,
-		"command": 7000
+		"command": 7000,
+		"mail": 8000,
+		"stat": 8001
 	},
 	"url": {
 		"client": "us.bhelp.com",
