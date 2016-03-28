@@ -19,6 +19,7 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		password		: config.mysql.password
 	}),
 	transporter = mailer.createTransport(config.mail);
+	console.log(transporter);
 var gData = {
 		config: config,
 		mysql: pool,
