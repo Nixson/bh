@@ -50,15 +50,28 @@
 			"hello-p2": " c офлайн консультанта Вам пришло сообщение",
 			"name":"Имя (от менеджера)",
 			"phone":"Телефон (от менеджера)",
-			"email":"email (от менеджера)",
+			"email":"Email (от менеджера)",
 			"mcomment":"Контакты (от менеджера)",
 			"cname":"Имя",
 			"cphone":"Телефон",
-			"cemail":"email",
+			"cemail":"Email",
 			"ccomment":"Контакты",
 			"msgText": "Текст сообщения"
 			},
-
+		"en": {
+			"subject":"Offline message",
+			"hello-p1": "Hello.",
+			"hello-p2": " offline with consultant you received a message",
+			"name":"Name (by the manager)",
+			"phone":"Phone (by the manager)",
+			"email":"Email (by the manager)",
+			"mcomment":"Contacts (by the manager)",
+			"cname":"Name",
+			"cphone":"Phone",
+			"cemail":"Email",
+			"ccomment":"Contacts",
+			"msgText": "Message text"
+			}
 		},
 	"version": 44
 }
