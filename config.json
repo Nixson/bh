@@ -35,9 +35,6 @@
 	},
 	"mail": {
 		"service": "Yandex",
-/*		"host": "smtp.yandex.ru",
-		"port": 456,
-		"secure": true,*/
 		"auth": {
 			"user": "support@bhelp.com",
 			"pass": "RsKZxpDNKTANxKxD"
