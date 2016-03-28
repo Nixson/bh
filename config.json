@@ -40,7 +40,25 @@
 		"auth": {
 			"user": "support@bhelp.com",
 			"pass": "RsKZxpDNKTANxKxD"
-		}
+		},
+		"from": "Bhelp <support@bhelp.com>"
 	},
+	"locale": {
+		"ru": {
+			"subject":"Offline сообщение",
+			"hello-p1": "Здравствуйте.",
+			"hello-p2": " c офлайн консультанта Вам пришло сообщение",
+			"name":"Имя (от менеджера)",
+			"phone":"Телефон (от менеджера)",
+			"email":"email (от менеджера)",
+			"mcomment":"Контакты (от менеджера)",
+			"cname":"Имя",
+			"cphone":"Телефон",
+			"cemail":"email",
+			"ccomment":"Контакты",
+			"msgText": "Текст сообщения"
+			},
+
+		},
 	"version": 44
 }
