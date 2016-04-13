@@ -19,7 +19,6 @@ var config = JSON.parse(fs.readFileSync(__dirname+"/config.json", "utf8").toStri
 		password		: config.mysql.password
 	}),
 	transporter = mailer.createTransport(config.mail);
-	console.log(transporter);
 var gData = {
 		config: config,
 		mysql: pool,
@@ -27,8 +26,16 @@ var gData = {
 		mail: null,
 		stat: null,
 		Emitter: new EventEmitter(),
+		log: {},
 		time: function(){
 			return parseInt((new Date).getTime()/1000);
+		},
+		hTime: 0,
+		reHtime: function(){
+			var nowTime = new Date();
+			var hDate = new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate());
+			this.hTime = parseInt(hDate.getTime()/1000);
+
 		},
 		getUnique: function(_this){
 			var u = {}, a = [];
@@ -42,6 +49,10 @@ var gData = {
 			return a;
 		}
 };
+gData.reHtime();
+setInterval(function(){
+	gData.reHtime();
+},6000);
 
 var mPath = __dirname+"/lib/mailer.js",
 	sPath = __dirname+"/lib/stat.js";
