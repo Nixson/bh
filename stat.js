@@ -33,9 +33,10 @@ var gData = {
 		hTime: 0,
 		reHtime: function(){
 			var nowTime = new Date();
-			var hDate = new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate(),nowTime.getHours());
-			console.log(hDate);
-			this.hTime = parseInt(hDate.getTime()/1000);
+			var hDate = parseInt((new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate(),nowTime.getHours())).getTime()/1000);
+			if(hDate > this.hTime){
+				this.hTime = hDate;
+			}
 		},
 		getUnique: function(_this){
 			var u = {}, a = [];
