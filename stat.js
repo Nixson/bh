@@ -34,8 +34,8 @@ var gData = {
 		reHtime: function(){
 			var nowTime = new Date();
 			var hDate = new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate());
+			console.log(hDate);
 			this.hTime = parseInt(hDate.getTime()/1000);
-
 		},
 		getUnique: function(_this){
 			var u = {}, a = [];
@@ -52,7 +52,7 @@ var gData = {
 gData.reHtime();
 setInterval(function(){
 	gData.reHtime();
-},6000);
+},60000);
 
 var mPath = __dirname+"/lib/mailer.js",
 	sPath = __dirname+"/lib/stat.js";
