@@ -34,7 +34,7 @@ var gData = {
 		toHour: function(utime){
 			var nowTime = new Date(utime*1000);
 			return parseInt((new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate(),nowTime.getHours())).getTime()/1000);
-		}
+		},
 		hTime: 0,
 		reHtime: function(){
 			var nowTime = new Date();
