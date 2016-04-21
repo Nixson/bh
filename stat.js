@@ -33,7 +33,7 @@ var gData = {
 		hTime: 0,
 		reHtime: function(){
 			var nowTime = new Date();
-			var hDate = new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate());
+			var hDate = new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate(),nowTime.getHours());
 			console.log(hDate);
 			this.hTime = parseInt(hDate.getTime()/1000);
 		},
