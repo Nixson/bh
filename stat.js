@@ -25,6 +25,7 @@ var gData = {
 		mailer: transporter,
 		mail: null,
 		stat: null,
+		sections: {},
 		Emitter: new EventEmitter(),
 		log: {},
 		time: function(){
