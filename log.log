@@ -629,3 +629,555 @@ bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
 bot mozilla/5.0 (compatible; yandexbot/3.0; +http://yandex.com/bots)
 bot mozilla/5.0 (iphone; cpu iphone os 8_1 like mac os x) applewebkit/600.1.4 (khtml, like gecko) version/8.0 mobile/12b411 safari/600.1.4 (compatible; yandexmobilebot/3.0; +http://yandex.com/bots)
 bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 1873 1202
+stat userIn 1202
+false
+client { uid: 'c1',
+  text: 'ssasssss',
+  data: 1461261182,
+  bot: 1,
+  who: 0,
+  block: 0 }
+stat save 1202
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1203
+stat userIn 1203
+false
+stat save 1203
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexbot/3.0; +http://yandex.com/bots)
+bot mozilla/5.0 (iphone; cpu iphone os 8_1 like mac os x) applewebkit/600.1.4 (khtml, like gecko) version/8.0 mobile/12b411 safari/600.1.4 (compatible; yandexmobilebot/3.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1204
+stat userIn 1204
+false
+stat save 1204
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1205
+stat userIn 1205
+false
+stat save 1205
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 1873 1206
+stat userIn 1206
+false
+client { uid: 'c1',
+  text: 'ssasssss',
+  data: 1461623476,
+  bot: 1,
+  who: 0,
+  block: 0 }
+stat save 1206
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1207
+stat userIn 1207
+false
+stat save 1207
+stat uniq 2703 1208
+stat userIn 1208
+false
+stat save 1208
+stat uniq 2703 1209
+stat userIn 1209
+false
+stat save 1209
+stat uniq 2703 1210
+stat userIn 1210
+false
+stat save 1210
+stat uniq 2703 1211
+stat userIn 1211
+false
+stat save 1211
+stat uniq 2703 1212
+stat userIn 1212
+false
+stat save 1212
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1213
+stat userIn 1213
+false
+stat save 1213
+stat uniq 2703 1214
+stat userIn 1214
+false
+stat save 1214
+stat uniq 2703 1215
+stat userIn 1215
+false
+stat save 1215
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1216
+stat userIn 1216
+false
+stat save 1216
+stat uniq 2703 1217
+stat userIn 1217
+false
+stat save 1217
+stat uniq 2703 1218
+stat userIn 1218
+false
+stat save 1218
+stat uniq 2703 1219
+stat userIn 1219
+false
+stat save 1219
+stat uniq 2703 1220
+stat userIn 1220
+false
+stat save 1220
+stat uniq 2703 1221
+stat userIn 1221
+false
+stat save 1221
+stat uniq 2703 1222
+stat userIn 1222
+false
+stat save 1222
+stat uniq 2703 1223
+stat userIn 1223
+false
+stat save 1223
+stat uniq 2703 1224
+stat userIn 1224
+false
+stat save 1224
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1225
+stat userIn 1225
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+false
+stat save 1225
+stat uniq 2703 1226
+stat userIn 1226
+false
+stat save 1226
+stat uniq 2703 1227
+stat userIn 1227
+false
+stat save 1227
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1228
+stat userIn 1228
+false
+stat save 1228
+stat uniq 2703 1229
+stat userIn 1229
+false
+stat save 1229
+stat uniq 2703 1230
+stat userIn 1230
+false
+stat save 1230
+stat uniq 1873 1231
+stat userIn 1231
+stat uniq 2703 1232
+stat userIn 1232
+false
+stat save 1232
+stat uniq 2703 1233
+stat userIn 1233
+false
+stat save 1233
+stat uniq 2703 1234
+stat userIn 1234
+false
+stat save 1234
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1235
+stat userIn 1235
+false
+stat save 1235
+stat uniq 2703 1236
+stat userIn 1236
+false
+stat save 1236
+stat uniq 2703 1237
+stat userIn 1237
+false
+stat save 1237
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1238
+stat userIn 1238
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+false
+stat save 1238
+stat uniq 2703 1239
+stat userIn 1239
+false
+stat save 1239
+stat uniq 2703 1240
+stat userIn 1240
+false
+stat save 1240
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1241
+stat userIn 1241
+false
+stat save 1241
+stat uniq 2703 1242
+stat userIn 1242
+false
+stat save 1242
+stat uniq 2703 1243
+stat userIn 1243
+false
+stat save 1243
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1244
+stat userIn 1244
+false
+stat save 1244
+stat uniq 2703 1245
+stat userIn 1245
+false
+stat save 1245
+stat uniq 2703 1246
+stat userIn 1246
+false
+stat save 1246
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1247
+stat userIn 1247
+false
+stat save 1247
+stat uniq 2703 1248
+stat userIn 1248
+false
+stat save 1248
+stat uniq 2703 1249
+stat userIn 1249
+false
+stat save 1249
+bot mozilla/5.0 (compatible; yandexbot/3.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1250
+stat userIn 1250
+false
+stat save 1250
+stat uniq 2703 1251
+stat userIn 1251
+false
+stat save 1251
+stat uniq 2703 1252
+stat userIn 1252
+false
+stat save 1252
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1253
+stat userIn 1253
+false
+stat save 1253
+stat uniq 2703 1254
+stat userIn 1254
+false
+stat save 1254
+stat uniq 2703 1255
+stat userIn 1255
+false
+stat save 1255
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 applewebkit/537.36 (khtml, like gecko; google web preview analytics) chrome/27.0.1453 safari/537.36 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1256
+stat userIn 1256
+false
+stat save 1256
+stat uniq 2703 1257
+stat userIn 1257
+false
+stat save 1257
+stat uniq 2703 1258
+stat userIn 1258
+false
+stat save 1258
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1259
+stat userIn 1259
+false
+stat save 1259
+stat uniq 2703 1260
+stat userIn 1260
+false
+stat save 1260
+stat uniq 2703 1261
+stat userIn 1261
+false
+stat save 1261
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1262
+stat userIn 1262
+false
+stat save 1262
+stat uniq 2703 1263
+stat userIn 1263
+false
+stat save 1263
+stat uniq 2703 1264
+stat userIn 1264
+false
+stat save 1264
+stat uniq 2703 1265
+stat userIn 1265
+false
+stat save 1265
+stat uniq 2703 1266
+stat userIn 1266
+false
+stat save 1266
+stat uniq 2703 1267
+stat userIn 1267
+false
+stat save 1267
+stat uniq 2703 1268
+stat userIn 1268
+false
+stat save 1268
+stat uniq 2703 1269
+stat userIn 1269
+false
+stat save 1269
+stat uniq 2703 1270
+stat userIn 1270
+false
+stat save 1270
+stat uniq 2703 1271
+stat userIn 1271
+false
+stat save 1271
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1272
+stat userIn 1272
+false
+stat save 1272
+stat uniq 2703 1273
+stat userIn 1273
+false
+stat save 1273
+stat uniq 2703 1274
+stat userIn 1274
+false
+stat save 1274
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)
+stat uniq 2703 1275
+stat userIn 1275
+bot mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)
+false
+stat save 1275
+stat uniq 2703 1276
+stat userIn 1276
+false
+stat save 1276
+stat uniq 2703 1277
+stat userIn 1277
+false
+stat save 1277
+stat uniq 2703 1278
+stat userIn 1278
+false
+stat save 1278
+stat uniq 2703 1279
+stat userIn 1279
+false
+stat save 1279
+stat uniq 2703 1280
+stat userIn 1280
+false
+stat save 1280
+stat uniq 2703 1281
+stat userIn 1281
+false
+stat save 1281
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1282
+stat userIn 1282
+false
+stat save 1282
+stat uniq 2703 1283
+stat userIn 1283
+false
+stat save 1283
+stat uniq 2703 1284
+stat userIn 1284
+false
+stat save 1284
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1285
+stat userIn 1285
+false
+stat save 1285
+stat uniq 2703 1286
+stat userIn 1286
+false
+stat save 1286
+stat uniq 2703 1287
+stat userIn 1287
+false
+stat save 1287
+stat uniq 2703 1288
+stat userIn 1288
+false
+stat save 1288
+stat uniq 2703 1289
+stat userIn 1289
+false
+stat save 1289
+stat uniq 2703 1290
+stat userIn 1290
+false
+stat save 1290
+stat uniq 2703 1291
+stat userIn 1291
+false
+stat save 1291
+stat uniq 2703 1292
+stat userIn 1292
+false
+stat save 1292
+stat uniq 2703 1293
+stat userIn 1293
+false
+stat save 1293
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1294
+stat userIn 1294
+false
+stat save 1294
+stat uniq 2703 1295
+stat userIn 1295
+false
+stat save 1295
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1296
+stat userIn 1296
+false
+stat save 1296
+stat userIn 1163
+false
+stat save 1163
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat uniq 2703 1297
+stat userIn 1297
+false
+stat save 1297
+stat uniq 2703 1298
+stat userIn 1298
+false
+stat save 1298
+stat uniq 2703 1299
+stat userIn 1299
+false
+stat save 1299
+stat uniq 1873 1300
+stat userIn 1300
+false
+client { uid: 'c1',
+  text: 'ssasssss',
+  data: 1462383940,
+  bot: 1,
+  who: 0,
+  block: 0 }
+stat save 1300
+stat uniq 2703 1301
+stat userIn 1301
+false
+stat save 1301
+stat uniq 2703 1302
+stat userIn 1302
+false
+stat save 1302
+stat uniq 2703 1303
+stat userIn 1303
+false
+stat save 1303
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1304
+stat userIn 1304
+false
+stat save 1304
+stat uniq 2703 1305
+stat userIn 1305
+false
+stat save 1305
+stat uniq 2703 1306
+stat userIn 1306
+false
+stat save 1306
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1307
+stat userIn 1307
+false
+stat save 1307
+stat uniq 2703 1308
+stat userIn 1308
+false
+stat save 1308
+stat uniq 2703 1309
+stat userIn 1309
+false
+stat save 1309
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
