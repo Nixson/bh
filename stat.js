@@ -26,6 +26,7 @@ var gData = {
 		mail: null,
 		stat: null,
 		sections: {},
+		managers: {},
 		Emitter: new EventEmitter(),
 		log: {},
 		time: function(){
@@ -36,11 +37,14 @@ var gData = {
 			return parseInt((new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate(),nowTime.getHours())).getTime()/1000);
 		},
 		hTime: 0,
+		lastH: 0,
 		reHtime: function(){
 			var nowTime = new Date();
 			var hDate = parseInt((new Date(nowTime.getFullYear(),nowTime.getMonth(),nowTime.getDate(),nowTime.getHours())).getTime()/1000);
 			if(hDate > this.hTime){
+				this.lastH = this.hTime;
 				this.hTime = hDate;
+
 			}
 		},
 		getUnique: function(_this){
