@@ -1800,3 +1800,8 @@ stat uniq 2703 1450
 stat userIn 1450
 false
 stat save 1450
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+bot mozilla/5.0 (compatible; yandexmetrika/2.0; +http://yandex.com/bots)
+stat userIn 1201
+false
+stat save 1201
