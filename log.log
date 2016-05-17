@@ -1750,3 +1750,53 @@ stat uniq 2703 1440
 stat userIn 1440
 false
 stat save 1440
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 2703 1441
+stat userIn 1441
+false
+stat save 1441
+stat uniq 2703 1442
+stat userIn 1442
+false
+stat save 1442
+stat uniq 2703 1443
+stat userIn 1443
+false
+stat save 1443
+stat uniq 2703 1444
+stat userIn 1444
+false
+stat save 1444
+stat uniq 2703 1445
+stat userIn 1445
+false
+stat save 1445
+stat uniq 2703 1446
+stat userIn 1446
+false
+stat save 1446
+bot mozilla/5.0 (compatible; googlebot/2.1; +http://www.google.com/bot.html)
+stat uniq 1873 1447
+stat userIn 1447
+false
+client { uid: 'c1',
+  text: 'ssasssss',
+  data: 1463463732,
+  bot: 1,
+  who: 0,
+  block: 0 }
+stat save 1447
+stat uniq 2703 1448
+stat userIn 1448
+false
+stat save 1448
+stat uniq 2703 1449
+stat userIn 1449
+false
+stat save 1449
+stat uniq 2703 1450
+stat userIn 1450
+false
+stat save 1450
