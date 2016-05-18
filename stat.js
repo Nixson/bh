@@ -61,6 +61,7 @@ var gData = {
 gData.reHtime();
 setInterval(function(){
 	gData.reHtime();
+	gData.stat.save();
 },60000);
 
 var mPath = __dirname+"/lib/mailer.js",
