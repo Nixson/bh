@@ -72,6 +72,7 @@ gData.mail = new Mail(gData);
 gData.mail.bind();
 gData.stat = new Stat(gData);
 gData.stat.bind();
+gData.stat.load();
 
 
 
