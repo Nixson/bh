@@ -45,7 +45,6 @@ var gData = {
 				this.lastH = hDate - 3600;
 				this.hTime = hDate;
 				return true;
-				//this.stat.clean();
 			}
 			return false;
 		},
