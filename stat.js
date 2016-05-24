@@ -44,8 +44,10 @@ var gData = {
 			if(hDate > this.hTime){
 				this.lastH = hDate - 3600;
 				this.hTime = hDate;
-				this.stat.clean();
+				return true;
+				//this.stat.clean();
 			}
+			return false;
 		},
 		getUnique: function(_this){
 			var u = {}, a = [];
@@ -61,7 +63,9 @@ var gData = {
 };
 gData.reHtime();
 setInterval(function(){
-	gData.reHtime();
+	if(gData.reHtime()){
+		gData.stat.clean();
+	}
 	gData.stat.save();
 },60000);
 
