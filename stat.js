@@ -44,7 +44,7 @@ var gData = {
 			if(hDate > this.hTime){
 				this.lastH = hDate - 3600;
 				this.hTime = hDate;
-				this.stat.clear();
+				this.stat.clean();
 			}
 		},
 		getUnique: function(_this){
