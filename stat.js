@@ -109,3 +109,11 @@ fs.watchFile(sPath,function (current, previous) {
       gData.stat.bind();
 	}
 });
+
+
+process.on('uncaughtException', (err) => {
+	console.log("on uncaughtException",err.stack);
+});
+process.addListener("uncaughtException",function(e){
+	console.log("listen uncaughtException",e.stack);
+});

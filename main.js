@@ -132,12 +132,12 @@ fs.watchFile(zPath,function (current, previous) {
 });
 
 	//gData.client.cs.listen(config.srv.client);
-/*process.on('uncaughtException', (err) => {
-	console.log("on uncaughtException",err);
+process.on('uncaughtException', (err) => {
+	console.log("on uncaughtException",err.stack);
 });
 process.addListener("uncaughtException",function(e){
-	console.log("listen uncaughtException",e);
-});*/
+	console.log("listen uncaughtException",e.stack);
+});
 
 
 /*var location = geoDb.find('46.148.53.103');
