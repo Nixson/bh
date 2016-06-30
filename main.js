@@ -9,7 +9,18 @@ var 	http 				= require('http'),
 		/*Client				= require(__dirname+'/lib/client.js'),
 		Manager				= require(__dirname+'/lib/manager.js'),
 		Signal				= require(__dirname+'/lib/signal.js'),*/
-		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat');
+		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat'),
+		logStream			= openLog("error.log");
+
+function openLog(path){
+	return fs.createWriteStream(path, {
+        flags: "a", encoding: "utf8", mode: 0644
+    });
+}
+
+function log(msg) {
+    logStream.write(msg + "\n");
+}
 
 var cPath = __dirname+"/lib/client.js",
 	mPath = __dirname+"/lib/manager.js",
@@ -130,15 +141,24 @@ fs.watchFile(zPath,function (current, previous) {
       gData.command.bind();
 	}
 });
-
+log("Starting...");
 	//gData.client.cs.listen(config.srv.client);
 process.on('uncaughtException', (err) => {
 	console.log("on uncaughtException",err.stack);
+	log(err.stack);
 });
 process.addListener("uncaughtException",function(e){
 	console.log("listen uncaughtException",e.stack);
+	log(e.stack);
 });
 
+process.once("SIGTERM", function() {
+    log("Stopping...");
+
+    logStream.on("close", function() {
+        process.exit(0);
+    }).end();
+});
 
 /*var location = geoDb.find('46.148.53.103');
 
