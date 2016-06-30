@@ -10,7 +10,7 @@ var 	http 				= require('http'),
 		Manager				= require(__dirname+'/lib/manager.js'),
 		Signal				= require(__dirname+'/lib/signal.js'),*/
 		geoDb 				= new sypex.Geo('/opt/usr/bh/lib/SxGeoCity.dat'),
-		logStream			= openLog("error.log");
+		logStream			= openLog(__dirname+"/../log/error-main.log");
 
 function openLog(path){
 	return fs.createWriteStream(path, {
