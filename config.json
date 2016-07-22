@@ -40,26 +40,6 @@
 			"pass": "RsKZxpDNKTANxKxD"
 		}
 	},
-	/*
-
-									 .replace("{%LANG.OFF.YES%}",info.get.lang.off_yes)
-									 .replace("{%LANG.OFF.NO%}",info.get.lang.off_no)
-									 .replace("{%LANG.OFF.ATITLE%}",info.get.lang.off_atitle)
-									 .replace("{%LANG.OFF.TITLE%}",info.get.lang.off_title)
-									 .replace("{%LANG.OFF.PH.NAME%}",info.get.lang.off_name)
-									 .replace("{%LANG.OFF.PH.PHONE%}",info.get.lang.off_phone)
-									 .replace("{%LANG.OFF.PH.MESSAGE%}",info.get.lang.off_message)
-									 .replace("{%LANG.OFF.PH.BUTTON%}",info.get.lang.off_btn)
-									 .replace("{%LANG.OFF.OK%}",info.get.lang.off_ok)
-
-									 .replace("{%LANG.BHELP%}",info.get.lang.bhelp)
-
-									 .replace("{%LANG.ON.YES%}",info.get.lang.on_yes)
-									 .replace("{%LANG.ON.NO%}",info.get.lang.on_no)
-									 .replace("{%LANG.ON.ATITLE%}",info.get.lang.on_atitle)
-									 .replace("{%LANG.ON.TITLE%}",info.get.lang.on_title)
-
-	*/
 	"locale": {
 		"ru": {
 			"subject":"Offline сообщение",
